@@ -191,23 +191,62 @@
 // Question 14: Create a function that returns the 
 // second largest number in an array
 
-let arr1 = [1, 2, 3, 4, 5];
-function secondLarge (arr){
-let max = arr[0];
-let secMax = arr[0];
-for(let i =1; i<arr.length; i++){
-  if(arr[i]> max){
-    max = arr[i];
-  }
-}
-for(let j = 1; j<arr.length; j++){
-  if(arr[j]> secMax && arr[j] != max){
-    secMax = arr[j]
-  }
-}
-return secMax;
-}
+//  solution 1 using 2 loop
+// let arr1 = [15, 2, 3, 4, 35];
+// function secondLarge (arr){
+// let max = -Infinity;
+// let secMax = -Infinity;
+// for(let i =0; i<arr.length; i++){
+//   if(arr[i]> max){
+//     max = arr[i];
+//   }
+// }
+// for(let j = 0; j<arr.length; j++){
+//   if(arr[j]> secMax && arr[j] != max){
+//     secMax = arr[j]
+//   }
+// }
+// return secMax;
+// }
 
-let second = secondLarge(arr1);
-console.log(second);
+// let second = secondLarge(arr1);
+// console.log(second);
  
+// Optimize Approch 
+// let arr1 = [15, 22, 3, 4, 35];
+// function secondLarge (arr) {
+//   let max = -Infinity;
+//   let secMax = -Infinity;
+//      for(let i =0; i<arr.length; i++){
+//         if(arr[i] > max){
+//        secMax = max;
+//        max = arr[i]
+//         }
+//         else if(arr[i]> secMax &&  arr[i] !== max){
+//          secMax = arr[i]
+//         }
+//      } 
+//      return secMax;
+// }
+// let res = secondLarge(arr1);
+// console.log(res);
+
+// Question: Write a function that takes an array and returns the count of even and odd numbers in it.
+// let arr = [1,2,3,4,5,6,77,8,6,54,33,3];
+// function count (arr) {
+//     let even = 0;
+//     let odd = 0;
+//     for(let i =0 ; i<arr.length; i++){
+//       if(arr[i]%2 ==0){
+//         even++;
+//       }
+//       else{
+//         odd++;
+//       }
+//     }
+//     console.log("Even : ",even  );
+//     console.log("Odd :", odd);
+    
+    
+//   }
+//   count(arr);
