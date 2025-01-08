@@ -160,11 +160,11 @@
 
 // Question 5: Provide a default value for discount while destructuring the product object. If discount is not available, set it to 10.
 
-const product = {
-    name: "Laptop",
-    price: 1200,
-  };
-const {discount = 10} = product;
+// const product = {
+//     name: "Laptop",
+//     price: 1200,
+//   };
+// const {discount = 10} = product;
 // console.log(discount);
 
 // Question 6: Destructure an array to extract the first and second elements, and leave the rest in a new variable called remaining.
