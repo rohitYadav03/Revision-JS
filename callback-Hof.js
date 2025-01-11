@@ -71,16 +71,78 @@
 // console.log(finalArray);
 
 //Q6.
-function mapArray(arr, callback){
-     let result = [];
-     for(let i =0; i<arr.length; i++){
-       result.push(callback(arr[i]))
-     }
-     return result;
-} // and i think this mapArray act as a map function only
-function square(num) {
-    return num * num;
-}
+// function mapArray(arr, callback){
+//      let result = [];
+//      for(let i =0; i<arr.length; i++){
+//        result.push(callback(arr[i]))
+//      }
+//      return result;
+// } // and i think this mapArray act as a map function only
+// function square(num) {
+//     return num * num;
+// }
 
-console.log(mapArray([1, 2, 3, 4], square));  
+// console.log(mapArray([1, 2, 3, 4], square));  
 
+//Q7. 
+// function combineArrays(arr1, arr2, combiner){
+// let result = [];
+// for(let i =0; i<Math.min(arr1.length, arr2
+//     .length
+// );i++){
+//     result.push(combiner(arr1[i],arr2[i]))
+// }
+// return result;
+// }
+// function sum(a, b) {
+//     return a + b;
+// }
+// console.log(combineArrays([1, 2], [4, 5, 6], sum));  
+
+//Q8.
+// function processNestedCallbacks (callback1){
+//     console.log("Starting process...");
+//     callback1(two)
+// }
+// function one(callback2){
+//     console.log("step 1 completed");
+//     callback2()
+// }
+// function two(){
+//     console.log("Step 2 is completed");
+// }
+// processNestedCallbacks(one);
+
+//Q9. 
+// function reduceArray(arr, callback){
+//     let res = arr[0];
+//      for(let i =1; i<arr.length;i++){
+//         res = callback(res, arr[i]);
+//      }
+//      return res;
+// }
+// function add (a,b){
+//     return a + b;
+// }
+// console.log(reduceArray([1,2,3,4],add));
+
+//Q10.
+// function hof (arr, callback1,callback2){
+//     let finalArray = [];
+//   for(let i =0;i<arr.length; i++){
+//     if(callback1(arr[i])){
+//         if(callback2(arr[i])){
+//       finalArray.push(arr[i]);
+//         }
+//     }
+//   }
+//   return finalArray;
+// }
+// function even (num){
+//    return num%2 ==0;
+// }
+// function greather(num){
+//     return num>10;
+// }
+// let array = [1, 5, 8, 12, 18, 20];
+// console.log(hof(array,even,greather));
