@@ -1,0 +1,36 @@
+lets understand how js internally works step by step :-
+
+console.log("Start");
+
+setTimeout(function() {
+  console.log("Task 1");
+}, 0);
+
+Promise.resolve().then(function() {
+  console.log("Microtask 1");
+});
+
+console.log("End");
+
+Step-by-Step Breakdown:
+1.Global Execution Context is created.
+2. Creation Phase of GEC:
+Variables (console, setTimeout, Promise) are hoisted.
+this is set to window.
+3. Execution Phase of GEC:
+console.log("Start") is executed: "Start" is printed.
+setTimeout() is called and placed in the Task Queue (with a 0ms delay).
+Promise.resolve().then() is called and placed in the Microtask Queue.
+console.log("End") is executed: "End" is printed.
+4. Now the Call Stack is empty, so the Event Loop starts checking the Microtask Queue.
+The Microtask Queue is processed first: "Microtask 1" is printed.
+5. Finally, the Event Loop moves to the Task Queue and executes Task 1: "Task 1" is printed.
+
+
+ -----in short ---------
+ Summary of Steps:
+Global Execution Context (GEC) is created.
+Memory is allocated and variables/functions are hoisted.
+Execution happens line by line (synchronous code).
+Asynchronous tasks (like promises, setTimeout) are handled via the Event Loop, Microtask Queue, and Task Queue.
+Functions are pushed and popped from the Call Stack.
