@@ -1,3 +1,5 @@
+// Review my complete Js notes and topics , did i have covered all importand Js concept and topic To clear any JS interview ??
+
 // Datatype => 1. Primitive 2. nonPrimitive => 1.ARRAY 2.OBJECT 3. A date
   // 1.Primitive
   let num = 10; // number 
@@ -108,7 +110,7 @@ fruits.sort();
 let sum = arr.reduce((accumulator, num) => {
   return accumulator + num
 },0)
-// console.log(sum);
+console.log(sum);
 
 //3.concat () => Merges two or more arrays into a new array without modifying the originals.
 let newArr = arr.concat(arr2)
@@ -120,7 +122,7 @@ let newArr = arr.concat(arr2)
 // console.log(arr);
 
 
-// --------------Array complete-------------------------------------------------
+// --------------Array complete-----------------------------------------------------------------------------------------------
 
 //String => 
   let myName = "ROhit yadav";
@@ -208,15 +210,22 @@ let newArr = arr.concat(arr2)
 
 // Scope in JS 
 // 1. Global scope => variable accessible every where 
-// function scope => variable accesable anuwhere inside the function, can only be declared by var
+// function scope => variable accesable anywhere inside the function, 
 // 3. block scope => only declare with let and const 
 
-// Lexical Sxoping / Lexiccal parsing =
+// Lexical Sxoping  =>
 // JS use lexical scoping in which 
 
 // function can access variable form their parent scope
 // Parent function canoot access variable from child function
 // scope chain is followed by  local to global 
+
+// Lexical Parsing =>
+// Before running the code, JavaScript performs lexical parsing, where:
+
+// The JS engine reads the code line by line.
+// It determines scopes and variable locations before execution.
+// Functions are assigned scopes based on where they are defined, NOT where they are called.
 
 // Scoping Machanism in JS => 
   // JS look for variable in the cuurent scope ,
@@ -243,7 +252,7 @@ let newArr = arr.concat(arr2)
 
 // ---------------------------CLASSES AND OBJECT  STARTED -------------------------------------------------------------------------
 // Class => are the blueprint for creting objects 
-// it define stucture and behaviour of  a class 
+// it define stucture and behaviour of  a object
 
 class Product{
   constructor(name , price){
@@ -288,7 +297,7 @@ obj1.setPrice = 10000;
 // 4. new object is automatticaly retirn if you dont manullay return any object 
 
 
-// before the function constructor we were using function constructor
+// before the class constructor we were using function constructor
 function Product2(name, price){
   this.name = name;
   this.price = price;
@@ -298,6 +307,51 @@ let pr1 = new Product2("Iphone",10000);
 
 // by this we were creting object before
 
+// ------------------Advance class topic---------------------------------------------
+// 1. Static Methods and Properties
+// Static methods belong to the class itself, not to instances.
+// They are useful for utility/helper functions.
+class MathUtils {
+  static add(a, b) {
+    return a + b;
+  }
+}
+
+console.log(MathUtils.add(5, 10)); // 15
+
+// 2. Inheritance (Extending a Class)
+// extends => allows a class to inherit from another class.
+// super => is used to call the parent class constructor or methods.
+
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+  
+  speak() {
+    console.log(`${this.name} makes a sound.`);
+  }
+}
+
+class Dog extends Animal {
+  constructor(name, breed) {
+    super(name); // Call parent class constructor
+    this.breed = breed;
+  }
+
+  speak() {
+    console.log(`${this.name} barks!`);
+  }
+}
+
+const myDog = new Dog("Buddy", "Golden Retriever");
+myDog.speak(); // Buddy barks!
+
+// 3. Instance Methods vs Prototype Methods
+// Methods inside the class are prototype methods, meaning all instances share them.
+// Defining methods inside the constructor creates instance-specific methods, which is inefficient
+
+// --------------------------------- OBJECT -------------------------------------------------------
 // Object in JS => collection of key value pair 
 // function inside object are know as method 
 let obj = {
@@ -345,7 +399,7 @@ obj.name = "Mota";
 
 //Q. make your coustom O=freeze and seal
 
-// ----------------------------------Object Destructing--------------------------------------------------------------
+// ----------------------------------Object Destructing and Array Destructing--------------------------------------------------------------
 const person = {
   name: "Rohit",
   age: 22
@@ -475,9 +529,7 @@ const{name:myLname,...otherDetails} = user;
 // 🔹 How to Create a Promise
 // You create a promise using the new Promise() constructor. It takes a function with two parameters: resolve (for success) and reject (for failure).
 
-// javascript
-// Copy
-// Edit
+
 // let myPromise = new Promise((resolve, reject) => {
 //   let success = true;  // Simulate success or failure
   
@@ -491,9 +543,7 @@ const{name:myLname,...otherDetails} = user;
 // You can consume the promise using then(), catch(), or finally() methods.
 
 // 1. Using then(): To handle a fulfilled promise.
-// javascript
-// Copy
-// Edit
+
 // myPromise.then(result => {
 //   console.log(result);  // Output: Task completed successfully!
 // });
@@ -514,9 +564,7 @@ const{name:myLname,...otherDetails} = user;
 // 🔹 Chaining Promises
 // You can chain multiple .then() methods to handle sequential asynchronous operations.
 
-// javascript
-// Copy
-// Edit
+
 // let myPromise = new Promise((resolve, reject) => {
 //   resolve(10);  // Fulfilled with value 10
 // });
@@ -529,32 +577,22 @@ const{name:myLname,...otherDetails} = user;
 // 1. then()
 // Used to handle fulfilled promises.
 
-// javascript
-// Copy
-// Edit
+
 // promise.then(onFulfilled, onRejected);
 // 2. catch()
 // Used to handle rejected promises.
 
-// javascript
-// Copy
-// Edit
 // promise.catch(onRejected);
 // 3. finally()
 // Executes code once the promise is settled, no matter if it's fulfilled or rejected.
 
-// javascript
-// Copy
-// Edit
+
 // promise.finally(() => {
 //   console.log("Clean-up or final tasks");
 // });
 // 4. Promise.all()
 // Used to execute multiple promises simultaneously and wait for all of them to resolve.
 
-// javascript
-// Copy
-// Edit
 // let promise1 = Promise.resolve(5);
 // let promise2 = Promise.resolve(10);
 
@@ -563,9 +601,7 @@ const{name:myLname,...otherDetails} = user;
 // 5. Promise.race()
 // Returns the result of the first promise to settle (either fulfilled or rejected).
 
-// javascript
-// Copy
-// Edit
+
 // let promise1 = new Promise((resolve, reject) => setTimeout(resolve, 100, 'First'));
 // let promise2 = new Promise((resolve, reject) => setTimeout(resolve, 200, 'Second'));
 
@@ -582,9 +618,7 @@ const{name:myLname,...otherDetails} = user;
 // Define an async function using the async keyword.
 // Use await inside the async function to wait for a promise to resolve.
 // Basic Example:
-// javascript
-// Copy
-// Edit
+
 // // Function that returns a promise
 // function fetchData() {
 //   return new Promise(resolve => {
@@ -608,9 +642,7 @@ const{name:myLname,...otherDetails} = user;
 // 🔹 Error Handling in Async/Await
 // You can handle errors in an async function using try/catch blocks.
 // Example:
-// javascript
-// Copy
-// Edit
+
 // async function fetchData() {
 //   try {
 //     let response = await fetch('https://api.example.com/data');
@@ -629,9 +661,7 @@ const{name:myLname,...otherDetails} = user;
 // What does fetch() return?
 // It returns a Promise that resolves to the Response object, which contains the response data.
 // Basic Usage:
-// javascript
-// Copy
-// Edit
+
 // fetch('https://api.example.com/data')
 //   .then(response => response.json())  // Parse the response as JSON
 //   .then(data => console.log(data))
@@ -645,3 +675,88 @@ const{name:myLname,...otherDetails} = user;
 // Error handling is done using try/catch blocks inside async functions.
 // fetch() is used to make HTTP requests and returns a Promise that resolves to the Response object.
 // response.json() parses the response as JSON data, and response.text() parses it as text
+
+// debounseing and throatling => 
+
+  //# DOM
+
+// ### **1. DOM (Document Object Model) Basics**
+
+// - The **DOM** is like a tree structure where each element in an HTML document is a node. You can interact with it using JavaScript.
+// - **Nodes** include elements, attributes, and text inside the document.
+// - For example, `<div>` is an element node, and the text inside it is a text node.
+
+// ---
+
+// ### **2. Selecting DOM Elements**
+
+// - **`getElementById()`**: Gets an element by its `id`.
+// - **`getElementsByClassName()`**: Selects elements by their class name.
+// - **`getElementsByTagName()`**: Selects elements by their tag name (like `<div>`).
+// - **`querySelector()`**: Selects the first element that matches a CSS selector.
+// - **`querySelectorAll()`**: Selects all elements that match a CSS selector.
+
+// ---
+
+// ### **3. Manipulating DOM Elements**
+
+// - **`innerHTML`**: Changes the HTML content of an element.
+// - **`textContent`**: Changes the text inside an element.
+// - **`setAttribute()` and `getAttribute()`**: Change or get an attribute of an element (like `id`, `href`).
+// - **`classList` (add, remove, toggle)**: Adds, removes, or toggles CSS classes on an element.
+// - **`style`**: Modifies inline styles of an element (like `background-color`, `border`).
+
+// ---
+
+// ### **4. DOM Events**
+
+// - **Event Listeners**: Use `addEventListener()` to react to user actions like clicks, typing, etc.
+// - **Common Events**: `click`, `submit`, `keydown`, `mouseover` are common events.
+// - **Event Propagation**: Events bubble (go up the DOM) and can be captured (go down the DOM). You can control this with `stopPropagation()`.
+// - **`preventDefault()`**: Stops the default action (like preventing a form from submitting).
+
+// ---
+
+// ### **5. DOM Traversing**
+
+// - **Parent Node**: Access an element’s parent using `parentNode` or `parentElement`.
+// - **Child Nodes**: Access children using `children`, `firstChild`, `lastChild`.
+// - **Siblings**: Use `nextElementSibling` and `previousElementSibling` to access siblings.
+// - **`closest()`**: Finds the nearest ancestor that matches a selector.
+
+// ---
+
+// ### **6. DOM Creation and Removal**
+
+// - **Create Elements**: Use `createElement()` to create new elements.
+// - **Append Elements**: Use `appendChild()` or `append()` to add elements to the DOM.
+// - **Insert Before**: Use `insertBefore()` to insert elements before others.
+// - **Remove Elements**: Use `removeChild()` or `remove()` to remove elements from the DOM.
+
+// ---
+
+// ### **7. Handling Forms and User Input**
+
+// - **Accessing Form Elements**: Use `form.elements`, `getElementById()`, or `querySelector()` to access form fields.
+// - **Form Validation**: Use JavaScript to check if form fields are filled out before submission.
+// - **`input` Event**: Triggered when an input field changes (real-time updates).
+// - **`change` Event**: Triggered when a value (like a checkbox or dropdown) changes.
+
+// Project I have build 
+// -  todo app
+// -  quiz app
+// -  Countdown Timer
+// - Fetch Data from an API and Display
+// - Create a Simple Form Validation
+// - Build a Modal Dialog
+// - Implement Debouncing in JavaScript
+// - Implement Throttling in JavaScript
+// - JavaScript Calculator
+// - Event Delegation
+// - Build a Simple Weather App
+// -  Snake Game
+// -  Drag and Drop
+// -  Tic Tac Toe
+
+
+// my question is after doing all these can i move to learning react or i need to cove js more 
